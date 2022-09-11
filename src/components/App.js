@@ -96,6 +96,7 @@
 // export default App;
 
 import MatrixCount from './matrix-setup/MatrixCount.js';
+import MatrixSize from './matrix-setup/MatrixSize.js'
 let React = require('react');
 // let MatrixCount = require('./matrix-setup/MatrixCount.js');
 
@@ -107,9 +108,11 @@ class App extends React.Component {
         initialMatrixDimensions:{}, // Defines the first matrix sizes
         matrixHolder:{} // Holds the matrices
     };
+
     setInitialState=(variable,value)=>{
         // Passed in values from either MatrixCount, MatrixSize or MatrixValues
         if(variable==='matrix-count') this.setState({matrixCount:value,inputsShown:'matrix-size'});
+
         else if(variable==='matrix-size'){
             // Set the initial matrixHolder skeleton for MatrixValues
             let initialMatrixHolder = {};
@@ -131,17 +134,24 @@ class App extends React.Component {
                 setInitialState={this.setInitialState}
                 inputsShown={this.state.inputsShown} />)
         }
-        // // If the current windo is shown is asking for each matrices size
-        // if (this.state.inputsShown === 'matrix-size') {
-        //     return (<MatrixSize
-        //         inputsShown={this.state.inputsShown}
-        //         ALPHABET={this.state.ALPHABET}
-        //         matrixCount={this.state.matrixCount}
-        //         setInitialState={this.setInitialState} />)
-        // }
+        // If the current windo is shown is asking for each matrices size
+        if (this.state.inputsShown === 'matrix-size') {
+            return (<MatrixSize
+                inputsShown={this.state.inputsShown}
+                ALPHABET={this.state.ALPHABET}
+                matrixCount={this.state.matrixCount}
+                setInitialState={this.setInitialState} />)
+        }
+           // If current window is shown is asking for the values for each matrix
+        // if (this.state.inputsShown === 'matrix-values') { return (<MatrixValues
+        //     setInitialState={this.setInitialState}
+        //     matrixHolder={this.state.matrixHolder}
+        //     inputsShown={this.state.inputsShown}
+        //     matrixCount={this.state.matrixCount}
+        //     ALPHABET={this.state.ALPHABET}
+        //     initialMatrixDimensions={this.state.initialMatrixDimensions} />)}
 
     }
-
 
 
 

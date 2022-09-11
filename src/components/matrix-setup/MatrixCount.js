@@ -1,10 +1,15 @@
+/**
+ *  DESCRIPTION:
+ *      2. User inputs amount of matrices they want, matrixCount state is set and 
+ *      passed back up to App through setInitialState after click submit.
+ */
 import React from 'react';
-// let React = require('react');
 
 let PropTypes = require('prop-types');
 
 class MatrixCount extends React.Component {
-    /* Asks user to input how many matrices they initially want created. 
+    /** 
+     * Asks user to input how many matrices they initially want created. 
      * Saves the amount to matrixCount variable passed in through props
      */
 
@@ -25,7 +30,7 @@ class MatrixCount extends React.Component {
                     - Call setState with new value
                     - Component rerenders(Any time setState is called then the component rerenders)
                     - Input is told what value is coming in from state (value is shoved into the input)
-*/}
+                    */}
                     
                     <input type="text" id="matrix-count" value={this.state.matrixCount}
                         onChange={(e)=>this.setState({matrixCount: e.target.value})} />
@@ -35,21 +40,13 @@ class MatrixCount extends React.Component {
                 </div>
             </div>
         )
-        // return (
-        //     <div>
-        //         <label class="label" for="name">Enter name:</label>
-        //         <input id="name" type="text" />
-        //         {/* <button style="background-color: blue; color:white">Submit</button> */}
-        //     </div>
-        // )
     }
 }
 
-// Make
-// MatrixCount.propTypes = {
-//     inputsShown: PropTypes.string,
-//     matrixCount: PropTypes.number,
-//     setInitialState: PropTypes.func,
-// }
+MatrixCount.propTypes = {
+    inputsShown: PropTypes.string,
+    matrixCount: PropTypes.number,
+    setInitialState: PropTypes.func,
+}
 
 export default MatrixCount;
