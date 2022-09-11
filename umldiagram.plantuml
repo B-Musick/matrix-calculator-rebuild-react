@@ -1,0 +1,123 @@
+@startuml
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+package INITIAL_MATRIX_DEFINITION <<Rectangle>> #1DBAAA {
+    class App << component >> {
+        ==
+        == STATE ==
+        ==
+        string ALPHABET
+        int matrixCount
+        string inputsShown
+        object initialMatrixDimensions
+        object matrixHolder
+        ==
+        == PROPS ==
+        ==
+        setInitialState()
+    }
+
+    class App
+    note left
+        1. This is where initial state is set.
+        MatrixCount -> MatrixSize -> MatrixValues
+        component are called in sucession where 
+        setInitialState() method changes which is shown
+        through changing inputsShown state variable.
+        After these three the final one called is
+        MatrixCalculator. 
+    end note
+
+    class MatrixCount << component >> {
+        ==
+        == STATE ==
+        ==
+        string matrixCount
+        ==
+        == PROPS ==
+        ==
+        string inputsShown
+        int matrixCount
+        onClick()
+    }
+    App o-- MatrixCount
+    App "setInitialState(inputsShown,parseInt(matrixCount)" <.. "onClick" MatrixCount
+
+    class MatrixCount
+    note left
+        2. User inputs amount of matrices they want,
+        matrixCount state is set and passed back 
+        up to App through setInitialState after 
+        click submit.
+    end note
+        
+    class MatrixSize << component >> {
+        ==
+        == STATE ==
+        ==
+        array matrixDimensions
+        ==
+        == PROPS ==
+        ==
+        string ALPHABET
+        int matrixCount
+        string inputsShown
+        setInitialState()
+        ==
+        -- METHODS --
+        ==
+        updateInput()
+        printInputs()
+        printMatrixInputs() 
+    }
+    App o-- MatrixSize
+    App "setInitialState(inputsShown,matrixDimensions)" <.. "onClick" MatrixSize
+
+    class MatrixSize
+    note left
+        3. User inputs the size for each individual matrix, 
+        these inputs printed in printInputs() which calls
+        printMatrixInputs(), the amount of inputs depending
+        on matrixCount. printInputs() is called in render().
+        updateInput is called as user types (onChange event listener 
+        in the inputs in printMatrixInputs) thus making sure
+        state is changed properly when submitted.
+    end note 
+
+    class MatrixValues << component >> {
+        ==
+        == STATE ==
+        ==
+        object matrixHolder
+        ==
+        == PROPS ==
+        ==
+        string ALPHABET
+        int matrixCount
+        string inputsShown
+        object matrixHolder
+        object initialMatrixDimensions
+        setInitialState()
+        ==
+        -- METHODS --
+        ==
+        handleSizeInputs()
+        handleChange()
+    }
+    App o-- MatrixValues 
+    App "setInitialState(inputsShown,matrixHolder)" <.. "onClick" MatrixValues
+
+    class MatrixValues      
+    note left
+        4. handleSizeInputs() will print all the inputs depending 
+        on the row and col size of each matrix set in MatrixSize, 
+        values which are held in matrixHolder state value.
+        handleChange(e) is called from onChange event listeners 
+        on the input where the state of matrixHolder is updated. 
+        When user submits, these matrices in matrixHolder are 
+        passed back up to App through setInitialState prop method.
+    end note 
+} 
+' End of package
+@enduml 
