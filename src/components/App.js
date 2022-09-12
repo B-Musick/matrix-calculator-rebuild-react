@@ -5,11 +5,14 @@
  *      - component are called in sucession where setInitialState() method changes which is shown
         through changing inputsShown state variable.
         - After these three the final one called is MatrixCalculator. 
+    @param matrixHolder Holds the matrix values the user defines in an array. This is set initially in MatrixValues
+    @param initialMatrixDimensions Holds the initial sizes of the matrices
  */
 
 import MatrixCount from './matrix-setup/MatrixCount.js';
 import MatrixSize from './matrix-setup/MatrixSize.js';
 import MatrixValues from './matrix-setup/MatrixValues.js';
+import MatrixCalculator from './matrix-calculator/MatrixCalculator.js';
 
 let React = require('react');
 
@@ -64,16 +67,15 @@ class App extends React.Component {
             inputsShown={this.state.inputsShown}
             matrixCount={this.state.matrixCount}
             ALPHABET={this.state.ALPHABET}
-            initialMatrixDimensions={this.state.initialMatrixDimensions} />)}
+            initialMatrixDimensions={this.state.initialMatrixDimensions} />)};
+
+        // If the user input the values to the matrix, show the matrix caclulator
+        if (this.state.inputsShown === 'matrix-calculator') { return (<MatrixCalculator
+            matrixHolder={this.state.matrixHolder}
+            inputsShown={this.state.inputsShown}
+            matrixCount={this.state.matrixCount}
+            ALPHABET={this.state.ALPHABET} />) }
     }
-
-    // // If the user input the values to the matrix, show the matrix caclulator
-    // if (this.state.inputsShown === 'matrix-calculator') { return (<MatrixCalculator 
-    //     matrixHolder={this.state.matrixHolder} 
-    //     inputsShown={this.state.inputsShown} 
-    //     matrixCount={this.state.matrixCount}
-    //     ALPHABET={this.state.ALPHABET} />) }
-
 }
 
 export default App;
