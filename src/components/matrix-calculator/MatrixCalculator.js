@@ -4,9 +4,11 @@ import OperationDescriptions from './OperationDescriptions';
 let React = require('react');
 
 class MatrixCalculator extends React.Component {
+    // Matrix holder holds the different matrices, matrix count is the number of matrices
     state = { matrixHolder: this.props.matrixHolder, matrixCount: this.props.matrixCount }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        // Receives props from the App.js, and matrixHolder will update in CalculatorInput when new calculation occurs
         this.setState({ matrixHolder: nextProps.matrixHolder, matrixCount: nextProps.matrixCount })
     }
     

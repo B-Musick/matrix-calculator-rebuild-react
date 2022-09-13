@@ -1,3 +1,6 @@
+import CofactorCalculator from './cofactor/CofactorCalculator';
+import GaussianCalculator from './gaussian/GaussianCalculator';
+
 let React = require('react');
 
 class CalculatorInput extends React.Component {
@@ -166,18 +169,19 @@ class CalculatorInput extends React.Component {
             )
 
         } 
-        // else if (this.state.calculatorShown === 'gaussian-calculator') {
-        //     // Returned if user types in matrix letter followed by 'R' into input
-        //     return (
-        //         <GaussianCalculator matrixToRowOperateOn={this.state.matrixToRowOperateOn} returnRowOperatedMatrix={this.returnRowOperatedMatrix} />
-        //     )
-        // } else if (this.state.calculatorShown === 'cofactor-calculator') {
-        //     // User types in matrix letter followed by 'C' in input
-        //     return (
-        //         // Matrix must be square
-        //         <CofactorCalculator matrixToCofactor={this.state.matrixToCofactor} returnToMatrixCalculator={this.returnToMatrixCalculator} />
-        //     )
-        // }
+        else if (this.state.calculatorShown === 'gaussian-calculator') {
+            // Returned if user types in matrix letter followed by 'R' into input
+            return (
+                <GaussianCalculator matrixToRowOperateOn={this.state.matrixToRowOperateOn} returnRowOperatedMatrix={this.returnRowOperatedMatrix} />
+            )
+        } 
+        else if (this.state.calculatorShown === 'cofactor-calculator') {
+            // User types in matrix letter followed by 'C' in input
+            return (
+                // Matrix must be square
+                <CofactorCalculator matrixToCofactor={this.state.matrixToCofactor} returnToMatrixCalculator={this.returnToMatrixCalculator} />
+            )
+        }
     }
 }
 

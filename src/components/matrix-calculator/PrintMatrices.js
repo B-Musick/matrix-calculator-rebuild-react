@@ -15,12 +15,12 @@ class PrintMatrices extends React.Component {
             // Set the title of the matrix
             let text = '';
             if (this.state.matrixHolder[mtx]['title']) text = this.state.matrixHolder[mtx]['title'];
+
             // Add matrix header with letter
             matrixContainer.push(<h3 dangerouslySetInnerHTML={{ __html: `MATRIX ${this.state.ALPHABET.charAt(mtx).toUpperCase()} ${text}` }} key={`matrix${mtx}Title`}></h3>);
             let tableRows = []; // Hold the individual <tr>
             for (let row = 0; row < this.state.matrixHolder[mtx]['matrix'].length; row++) {
                 // Loop through rows of matrix
-
                 let tableRow = []; // Holds individual row
                 for (let col = 0; col < this.state.matrixHolder[mtx]['matrix'][0].length; col++) {
                     // Loop through each column value in the matrix row
