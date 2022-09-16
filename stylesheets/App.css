@@ -1,0 +1,314 @@
+/******************************** MAIN STYLES ********************************/
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(79, 155, 218);
+  font-family: 'VT323', monospace;
+}
+
+#matrix-calculator-header {
+  /* Header which displays MATRIX CALCULATOR */
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 4vw;
+}
+
+input {
+  /* Style the input boxes */
+  text-align: center !important;
+  all: unset;
+  border: 2px solid rgb(17, 176, 128);
+  background-color: white;
+}
+
+input[type="submit"] {
+  /* Style all the submit buttons */
+  all: unset;
+  background-color: rgb(17, 176, 128);
+  padding: 2px;
+  color: white;
+}
+
+/************************ INITIAL INPUTS STYLES  ********************************/
+
+#root {
+  /* Holds all the inputs screen */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs-container {
+  position: relative;
+  /* top: 10vw; */
+  background-color: rgb(168, 170, 223);
+  border: 4px solid rgb(74, 76, 154);
+  padding: 40px;
+  padding-bottom: 60px;
+  color: rgb(50, 52, 128);
+}
+
+.inputs-container p {
+  text-align: center;
+  font-size: x-large;
+}
+
+.inputs-container h2 {
+  border-bottom: 1px dashed rgb(50, 52, 128);
+  padding: 15px 0;
+}
+
+/************************* MATRIX SIZE *************************************/
+.matrix-size-containers input {
+  position: absolute;
+  right: 30px;
+}
+
+
+/**************** GO THROUGH ************/
+
+#matrix-dimension-submit {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+#matrix-value-input-container .row {
+  display: flex;
+  justify-content: center;
+}
+
+#matrix-value-input-container input {
+  width: 15px;
+}
+
+#matrix-value-input-container input[type="submit"] {
+  margin-top: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.matrix-container {
+  margin: 0 auto;
+  width: fit-content !important;
+}
+
+.matrix-container input {
+  text-align: center;
+  margin: 5px;
+}
+
+/*************************** MATRIX CALCULATOR *********************************/
+#matrix-calculator-container {
+  position: absolute;
+  top: 5vw;
+  width: 100%;
+  left: 0;
+}
+
+#show-matrices-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#matrix-calculator {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+
+}
+
+#matrix-calculator-operations {
+  background-color: rgba(130, 182, 234, 0.637);
+  margin: 10px 9vw;
+}
+
+#matrix-calculator-operations ul {
+  list-style: none;
+  /* margin-left: -40px; */
+  padding: 0;
+  list-style-type: none;
+  border: 3px black solid;
+}
+
+.calculator-operation-header {
+  /* text-decoration: underline; */
+  background-color: rgba(130, 182, 234, 0.637);
+  border: #000 1px solid;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  font-weight: 700;
+}
+
+.calculator-operation-header:hover {
+  background-color: rgba(178, 210, 243, 0.637);
+}
+/* .calculator-operation-header span {
+  text-transform: lowercase;
+} */
+
+.matrix input {
+  text-align: center;
+}
+
+.matrix {
+  width: auto;
+  position: relative;
+}
+
+.matrix tr {
+  display: flex;
+  justify-content: center;
+}
+
+.matrix td {
+  margin: 1px 3px;
+}
+
+.matrix:before,
+.matrix:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 1px solid #000;
+  width: 6px;
+  height: 100%;
+}
+
+.matrix:before {
+  left: -6px;
+  border-right: 0;
+}
+
+.matrix:after {
+  right: -6px;
+  border-left: 0;
+}
+
+input {
+  all: unset;
+  border: 2px solid rgb(17, 176, 128);
+  background-color: white;
+}
+
+input[type="submit"] {
+  all: unset;
+  background-color: rgb(17, 176, 128);
+  padding: 2px;
+  color: white;
+}
+
+/*************************** GAUSSIAN CALCULATOR *****************************/
+#gaussian-calculator {
+  /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  max-width: 800px;
+
+
+}
+
+#gaussian-grid {
+  grid-column: 1/3;
+  margin: 30px auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+
+}
+
+#gaussian-calculator-header {
+  grid-column: 1/4;
+  text-align: center;
+}
+
+#row-operation-container {
+  margin: 0 auto;
+  grid-column: 1/3;
+}
+
+#gaussian-matrix-submit {
+  grid-column: 1/3;
+  width: 169px;
+  margin: 10px auto;
+
+}
+
+.matrix-calculator-box {
+  /* Actual matrices which have been created */
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.elementary-matrix-container {
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.identity-matrix-container {
+  grid-column: 3/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#identity-matrix-show-button {
+  grid-column: 1/3;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 169px;
+
+}
+
+#elementary-matrix-show-button {
+  grid-column: 1/3;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 169px;
+
+
+}
+
+.matrix-container-hidden {
+  display: none;
+}
+
+/************************************ TTITLE ***********************************/
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 4vw;
+}
+
+/******* Calculator instructions ******/
+.calculator-operation-header{
+  z-index: 1;
+}
+.shown-description {
+  display:block;
+}
+
+.hidden-description{
+  display: none;
+}

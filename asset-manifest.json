@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/matrix-calculator-rebuild-react/static/js/main.b775f812.js",
+    "static/js/787.b2625337.chunk.js": "/matrix-calculator-rebuild-react/static/js/787.b2625337.chunk.js",
+    "index.html": "/matrix-calculator-rebuild-react/index.html",
+    "main.b775f812.js.map": "/matrix-calculator-rebuild-react/static/js/main.b775f812.js.map",
+    "787.b2625337.chunk.js.map": "/matrix-calculator-rebuild-react/static/js/787.b2625337.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b775f812.js"
+  ]
+}
