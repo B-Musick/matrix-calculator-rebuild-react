@@ -31,7 +31,7 @@ class PrintMatrices extends React.Component {
                 tableRow = []; // Clear row array for next iteration
             }
             matrixContainer.push(<table key={`matrix-table-${mtx}`} className="matrix"><tbody>{tableRows}</tbody></table>);
-            matrixBoxes.push(<div key={`matrix-box-${mtx}`} id="matrix-calculator-box">{matrixContainer}</div>); // Push this single matrix to array holding all matrices
+            matrixBoxes.push(<div key={`matrix-box-${mtx}`} class="matrix-calculator-box">{matrixContainer}</div>); // Push this single matrix to array holding all matrices
             matrixContainer = []; // Clear for next matrix
         }
         return matrixBoxes;
